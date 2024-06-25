@@ -11,13 +11,13 @@
     <div class="about-page">
         <header>
             <div class="container">
-                <a href="{% url 'home' %}" class="logo">Happy <b>Stack</b></a>
+                <a href="{% url 'home' %}" class="logo">Landing <b>Page</b></a>
                 <ul class="links">
                     <li><a href="{% url 'home' %}">Home</a></li>
-                    <li class="{% url 'about' %}">About Us</li>
-                    <li><a href="#">Work</a></li>
+                    <li><a href="{% url 'about' %}">About Us</a></li>
+                    <li><a href="{% url 'work' %}">work</a></li>
                     <li><a href="#">Info</a></li>
-                    <li class="cta-button"><a href="{% url 'get-started' %}">Get Started</a></li>
+                    <li class="cta-button"><a href="{% url 'get-started' %}">Disco!</a></li>
                 </ul>
             </div>
         </header>
@@ -65,7 +65,7 @@
         }
 
         // Change image every 4 seconds
-        setInterval(changeImage, 500);
+        setInterval(changeImage, 200);
 
         // Initial call to set the first image
         changeImage();

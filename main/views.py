@@ -9,3 +9,6 @@ def about(request):
 
 def getStarted(request):
     return render(request, 'get-started.html')
+
+def work(request):
+    return render(request, 'work.html')
