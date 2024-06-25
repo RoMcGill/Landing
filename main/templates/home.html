@@ -8,17 +8,66 @@
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
-    <header>
-        <h1>Welcome to Our Web Development Service</h1>
-        <p>We provide top-notch web development services for modern businesses.</p>
-    </header>
-    <div class="about-us">
-        <h2>About us</h2>
-        <p>Our team of experts specializes in creating stunning and functional websites tailored to your needs.</p>
-    </div>
-    <div class="bottom-space"></div>
-    <footer>
-        <p>&copy; 2024 Our Web Development Service</p>
-    </footer>
+    <div class="landing-page">
+        <header>
+          <div class="container">
+            <a href="#" class="logo">Happy <b>Stack</b></a>
+            <ul class="links">
+              <li>Home</li>
+              <li><a href="{% url 'about' %}">About Us</a></li>
+              <li>Work</li>
+              <li>Info</li>
+              <li class="cta-button"><a href="{% url 'get-started' %}">Get Started</a></li>
+            </ul>
+          </div>
+        </header>
+        <div class="content">
+          <div class="container">
+            <div class="info">
+              <h1>I don't know what you do?</h1>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus odit nihil ullam nesciunt quidem iste, Repellendus odit nihil</p>
+              <button class="cta-button">Find Out</button>
+            </div>
+            <div class="image">
+              <img id="image" src="{% static 'images/orange.png' %}" alt="Orange Picture">
+            </div>
+          </div>
+        </div>
+      </div>
+    <script>
+        let images = [
+            {src: "{% static 'images/orange.png' %}", color: '#fba911'},
+            {src: "{% static 'images/blue.png' %}", color: '#1192fb'},
+            {src: "{% static 'images/purp.png' %}", color: '#6c63ff'}
+        ];
+        let index = 0;
+
+        function changeImage() {
+            let imageElement = document.getElementById('image');
+            let ctaButtons = document.querySelectorAll('.cta-button');
+            let headerLinks = document.querySelectorAll('.landing-page header .links li:last-child');
+
+            // Update the image source
+            imageElement.src = images[index].src;
+
+            // Update the background color for buttons and header links
+            ctaButtons.forEach(button => {
+                button.style.backgroundColor = images[index].color;
+            });
+            headerLinks.forEach(link => {
+                link.style.backgroundColor = images[index].color;
+            });
+
+            // Move to the next image
+            index = (index + 1) % images.length;
+        }
+
+        // Change image every 4 seconds
+        setInterval(changeImage, 4000);
+
+        // Initial call to set the first image
+        changeImage();
+    </script>
 </body>
 </html>
+

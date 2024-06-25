@@ -1,0 +1,75 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="about-page">
+        <header>
+            <div class="container">
+                <a href="{% url 'home' %}" class="logo">Happy <b>Stack</b></a>
+                <ul class="links">
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li class="cta-button">About Us</li>
+                    <li><a href="#">Work</a></li>
+                    <li><a href="#">Info</a></li>
+                    <li class="cta-button"><a href="{% url 'get-started' %}">Get Started</a></li>
+                </ul>
+            </div>
+        </header>
+        <div class="content">
+            <div class="container">
+                <div class="info">
+                    <h1>About Us</h1>
+                    <p>Welcome to our company! We are dedicated to delivering the best service to our customers. Our team is composed of highly skilled professionals who are passionate about what they do.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac vestibulum erat. Cras volutpat odio vitae nunc dictum, a ullamcorper nunc gravida. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Donec sit amet facilisis dui.</p>
+                    <p>Sed interdum nulla at mi hendrerit aliquet. Mauris ac fermentum dolor, in posuere felis. Nam at nulla ut nunc gravida vestibulum. In ut libero sit amet metus gravida sollicitudin.</p>
+                    <button class="cta-button">Contact Us</button>
+                </div>
+                <div class="image">
+                    <img id="image" src="{% static 'images/orange.png' %}" alt="About Us Image">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        let images = [
+            {src: "{% static 'images/orange.png' %}", color: '#fba911'},
+            {src: "{% static 'images/blue.png' %}", color: '#1192fb'},
+            {src: "{% static 'images/purp.png' %}", color: '#6c63ff'}
+        ];
+        let index = 0;
+
+        function changeImage() {
+            let imageElement = document.getElementById('image');
+            let ctaButtons = document.querySelectorAll('.cta-button');
+            let headerLinks = document.querySelectorAll('.about-page header .links li:last-child');
+
+            // Update the image source
+            imageElement.src = images[index].src;
+
+            // Update the background color for buttons and header links
+            ctaButtons.forEach(button => {
+                button.style.backgroundColor = images[index].color;
+            });
+            headerLinks.forEach(link => {
+                link.style.backgroundColor = images[index].color;
+            });
+
+            // Move to the next image
+            index = (index + 1) % images.length;
+        }
+
+        // Change image every 4 seconds
+        setInterval(changeImage, 4000);
+
+        // Initial call to set the first image
+        changeImage();
+    </script>
+</body>
+</html>
+
