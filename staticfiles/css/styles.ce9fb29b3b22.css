@@ -1,0 +1,49 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    height: 100vh;
+    background-image: url('/workspace/Landing/static/images/background.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+
+}
+
+section {
+    padding: 2rem;
+    text-align: center;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    bottom: 0;
+    width: 100%;
+    margin: 0;
+}
+
+.about-us{
+
+
+        color: white;
+        text-align: center;
+        padding: 1rem;
+        width: 100%;
+        margin: 0;
+
+}
+
+.bottom-space{
+    height: 100vh;
+}
+
