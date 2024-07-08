@@ -12,6 +12,15 @@ ul {
     padding: 0;
     margin: 0;
 }
+.image{
+    width: 110px;
+    height: 200px;
+}
+
+#image{
+    width: 110px;
+    height: 200px;
+}
 .container {
     padding-left: 15px;
     padding-right: 15px;
