@@ -1,5 +1,6 @@
 
 from django.shortcuts import render
+import requests
 import os
 from dotenv import load_dotenv
 from django.views.decorators.csrf import csrf_exempt
@@ -13,6 +14,8 @@ from django.shortcuts import render
 from openai import OpenAI
 
 # Ensure the OpenAI API key is securely retrieved
+
+WEATHER_API_KEY = os.getenv('WEATHER_API_KEY')
 OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
 OpenAI.api_key = OPENAI_API_KEY
 client = OpenAI()
@@ -195,9 +198,21 @@ developer_info = """
     ]
 }
 
-
 """
 
+def get_weather_data(city):
+    weather_url = f"http://api.weatherapi.com/v1/current.json?key={WEATHER_API_KEY}&q={city}"
+    response = requests.get(weather_url)
+    if response.status_code == 200:
+        data = response.json()
+        weather = {
+            "temperature": data['current']['temp_c'],
+            "description": data['current']['condition']['text'],
+            "icon": data['current']['condition']['icon']
+        }
+    else:
+        weather = None
+    return weather
 
 @csrf_exempt  # Only use this for development; use proper CSRF handling in production
 def home(request):
@@ -209,11 +224,13 @@ def home(request):
                 "You are a helpful assistant knowledgeable about Ronan. Your purpose is to provide information "
                 "about Ronan based on the questions asked. Ronan has given consent to share this information "
                 "publicly. Always respond with accurate and concise details, ensuring that your responses do not exceed "
-                "five sentences in length. If you do not know the answer, state that you do not have enough information "
+                "three sentences in length. If you do not know the answer, state that you do not have enough information "
                 "to respond to the question."
             )
         }
     ]
+
+    weather = get_weather_data('Dublin')
 
     if request.method == "POST":
         if 'developer_info' in request.POST:
@@ -222,7 +239,6 @@ def home(request):
             user_prompt = request.POST.get("question")
             # Add the user's question to the messages as a User Role
             messages.append({"role": "user", "content": f"Developer info: {developer_info}. {user_prompt}"})
-
 
             # Generate a completion using the user's question
             completion = client.chat.completions.create(
@@ -236,9 +252,17 @@ def home(request):
             # Add the response to the messages as an Assistant Role
             messages.append({"role": "assistant", "content": model_response})
 
-            return render(request, "home.html", {"response": model_response, "question": user_prompt})
+        return render(request, "home.html", {
+            "response": model_response,
+            "question": user_prompt,
+            "developer_info": developer_info,
+            "weather": weather
+        })
 
-    return render(request, "home.html")
+    return render(request, "home.html", {
+        "developer_info": developer_info,
+        "weather": weather
+    })
 
 
 

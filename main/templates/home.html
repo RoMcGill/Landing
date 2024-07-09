@@ -6,167 +6,88 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ronan McGill</title>
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-        .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin: 0 auto;
-        }
-        .landing-page {
-            width: 100%;
-        }
-        header {
-            width: 100%;
-            background: #333;
-            color: white;
-            padding: 1rem 0;
-        }
-        .logo {
-            font-size: 1.5rem;
-            color: white;
-            text-decoration: none;
-        }
-        .links {
-            list-style: none;
-            display: flex;
-            gap: 1rem;
-        }
-        .links li {
-            margin: 0 10px;
-        }
-        .links a {
-            color: white;
-            text-decoration: none;
-        }
-        .cta-button a {
-
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            text-decoration: none;
-        }
-        .content {
-            display: flex;
-            justify-content: space-between;
-            width: 100%;
-            padding: 2rem 0;
-        }
-        .image{
-          height: 180px;
-        }
-        .info, .ai, .image {
-            flex: 1;
-            margin: 0 1rem;
-
-        }
-        .info pre, .ai form, .image img {
-            margin: 1rem 0;
-
-        }
-        .info pre {
-            background-color: #f4f4f4;
-            padding: 5px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            white-space: pre-wrap;
-        }
-        .ai form input {
-            width: calc(100% - 120px);
-            padding: 0.5rem;
-        }
-        .ai form button {
-            padding: 0.5rem;
-        }
-        .info h1, .ai h1 {
-            color: #666;
-            font-weight: bold;
-        }
-    </style>
 </head>
 <body>
-    <div class="landing-page">
-        <header>
-          <div class="container">
-            <a href="#" class="logo">Ronans<b>Portfolio</b></a>
-            <ul class="links">
-              <li>Home</li>
-              <li><a href="{% url 'about' %}">About Us</a></li>
-              <li><a href="{% url 'work' %}">Work</a></li>
-              <li>Info</li>
-              <li class="cta-button"><a href="{% url 'get-started' %}">Disco!</a></li>
-            </ul>
-          </div>
-        </header>
-        <div class="container">
-          <div class="content">
-            <div class="info">
-              <h1>Stats</h1>
-              <h2>Developer Information:</h2>
-              <pre>{
-"name": "Ronan",
+<!----------------Header Section---------------->
+<header>
+<div class="container">
+    <a href="#" class="logo">Ronan's<b> Portfolio</b></a>
+    <ul class="links">
+        <li>Home</li>
+        <li><a href="{% url 'about' %}">About Us</a></li>
+        <li><a href="{% url 'work' %}">Work</a></li>
+        <li>Info</li>
+        <li class="cta-button"><a href="{% url 'get-started' %}">Disco!</a></li>
+    </ul>
+</div>
+</header>
+
+<!----------------Main Content Section---------------->
+<section>
+    <div></div>
+</section>
+<!----------------Developer Information Section---------------->
+<section class="dev-info-section">
+    <div class="info">
+        <h1>Stats</h1>
+        <pre>{
+"name": "Ronan McGill",
 "age": 27,
 "location": "Ireland",
 "profession": "Full Stack Developer"
 }</pre>
-            </div>
-            <div class="ai">
-              <h1>Find out more about Ronan from Barry!</h1>
-              <p>barry is Ronans in-house information retrival bot</p>
-              <form method="POST">
-                  {% csrf_token %}
-                  <input type="text" id="question" name="question" required>
-                  <button type="submit">Ask</button>
-              </form>
+    </div>
+    <div class="image-container">
+        <img src="{% static 'images/robw.png' %}" alt="Orange">
+    </div>
+</section>
 
-              {% if response %}
-                  <h2>Barry:</h2>
-                  <p>{{ response }}</p>
-              {% endif %}
-            </div>
-            <div class="image">
-              <img id="image" src="{% static 'images/orange.png' %}" alt="Orange Picture">
-            </div>
-          </div>
+<!----------------AI Bot Section---------------->
+<section class="ai-bot-section">
+    <div class="ai">
+        <h1>Find out more about Ronan</h1>
+        <p>By using my in-house information retrieval bot</p>
+        <form method="POST">
+            {% csrf_token %}
+            <input type="text" id="question" name="question" required>
+            <button type="submit">Ask Another</button>
+        </form>
+
+        {% if response %}
+        <div class="response">
+            <p>{{ response }}</p>
+        {% else %}
+        <div class="response">
+            <p>Ronan is 27 years old</p>
+        {% endif %}
         </div>
     </div>
+    <div class="backdrop"></div>
+</section>
 
-    <script>
-        let images = [
-            {src: "{% static 'images/orange.png' %}", color: '#fba911'},
-            {src: "{% static 'images/blue.png' %}", color: '#1192fb'},
-            {src: "{% static 'images/purp.png' %}", color: '#6c63ff'}
-        ];
-        let index = 0;
+<!----------------Image Section---------------->
+<!-- <section>
+    <div class="image">
+        <img id="image" src="{% static 'images/logo.png' %}" alt="Orange Picture">
+    </div>
+</section> -->
 
-        function changeImage() {
-            let imageElement = document.getElementById('image');
-            let ctaButtons = document.querySelectorAll('.cta-button');
-            let headerLinks = document.querySelectorAll('.landing-page header .links li:last-child');
+<!----------------Weather Section---------------->
+<section>
+    <div class="weather">
+        <h2>Current Weather @ Ronan's Location:</h2>
+        {% if weather %}
+            <p>Temperature: {{ weather.temperature }}°C</p>
+            <p>Description: {{ weather.description }}</p>
+            <img src="{{ weather.icon }}" alt="Weather Icon">
+        {% else %}
+            <p>Weather information is not available.</p>
+        {% endif %}
+    </div>
+</section>
+<!----------------footer Section---------------->
+<footer>
 
-            // Update the image source
-            imageElement.src = images[index].src;
-
-            // Update the background color for buttons and header links
-            ctaButtons.forEach(button => {
-                button.style.backgroundColor = images[index].color;
-            });
-            headerLinks.forEach(link => {
-                link.style.backgroundColor = images[index].color;
-            });
-
-            // Move to the next image
-            index = (index + 1) % images.length;
-        }
-
-        // Change image every 4 seconds
-        setInterval(changeImage, 4000);
-
-        // Initial call to set the first image
-        changeImage();
-    </script>
+</footer>
 </body>
 </html>
