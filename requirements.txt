@@ -1,8 +1,15 @@
+annotated-types==0.7.0
 asgiref==3.8.1
+distro==1.9.0
 dj-database-url==2.2.0
 Django==5.0.6
 django-heroku==0.3.1
 gunicorn==22.0.0
+openai==1.35.10
 psycopg2==2.9.9
+pydantic==2.8.2
+pydantic_core==2.20.1
+python-dotenv==1.0.1
 sqlparse==0.5.0
+tqdm==4.66.4
 whitenoise==6.7.0
