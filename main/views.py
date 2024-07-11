@@ -29,7 +29,7 @@ developer_info = """
     "personal_info": {
         "name": "Ronan McGill",
         "age": 27,
-        "address": "2 Meadowvale, Blackrock, Dublin 18",
+        "address": "Blackrock, Dublin 18",
         "phone": "+353861264980",
         "email": "Ro.mcgill12@gmail.com",
         "linkedin": "https://www.linkedin.com/in/ronan-mcgill-512b7a22a/",

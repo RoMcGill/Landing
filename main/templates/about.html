@@ -4,72 +4,137 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us</title>
+    <title>About Ronan McGill</title>
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <script defer src="{% static 'js/script.js' %}"></script>
 </head>
 <body>
-    <div class="about-page">
-        <header>
-            <div class="container">
-                <a href="{% url 'home' %}" class="logo">Landing <b>Page</b></a>
-                <ul class="links">
-                    <li><a href="{% url 'home' %}">Home</a></li>
-                    <li><a href="{% url 'about' %}">About Us</a></li>
-                    <li><a href="{% url 'work' %}">work</a></li>
-                    <li><a href="#">Info</a></li>
-                    <li class="cta-button"><a href="{% url 'get-started' %}">Disco!</a></li>
-                </ul>
-            </div>
-        </header>
-        <div class="content">
-            <div class="container">
-                <div class="info">
-                    <h1>About Us</h1>
-                    <p>Welcome to our company! We are dedicated to delivering the best service to our customers. Our team is composed of highly skilled professionals who are passionate about what they do.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac vestibulum erat. Cras volutpat odio vitae nunc dictum, a ullamcorper nunc gravida. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Donec sit amet facilisis dui.</p>
-                    <p>Sed interdum nulla at mi hendrerit aliquet. Mauris ac fermentum dolor, in posuere felis. Nam at nulla ut nunc gravida vestibulum. In ut libero sit amet metus gravida sollicitudin.</p>
-                    <button class="cta-button">Contact Us</button>
+<!----------------Header Section---------------->
+<header>
+    <div class="container">
+        <a href="#" class="logo">About<b> Ronan McGill</b></a>
+        <div class="menu-icon" id="menu-icon">
+            &#9776; <!-- Hamburger icon -->
+        </div>
+        <ul class="links" id="nav-links">
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'about' %}">About</a></li>
+            <li><a href="{% url 'work' %}">Projects</a></li>
+            <li>Info</li>
+            <!-- <li class="cta-button"><a href="{% url 'get-started' %}">Disco!</a></li> -->
+        </ul>
+    </div>
+</header>
+<!-- Main content goes here -->
+</body>
+</html>
+
+
+<!----------------Main Content Section---------------->
+<section class="about-section">
+    <div class="about-container">
+        <h1>About Ronan McGill</h1>
+        <div class="about-content">
+            <div class="row">
+                <div class="box1 personal-info">
+                    <h2>Personal Information</h2>
+                    <p><strong>Name:</strong> Ronan McGill</p>
+                    <p><strong>Age:</strong> 27</p>
+                    <p><strong>Address:</strong> 2 Meadowvale, Blackrock, Dublin 18</p>
+                    <p><strong>Phone:</strong> +353861264980</p>
+                    <p><strong>Email:</strong> <a href="mailto:Ro.mcgill12@gmail.com">Ro.mcgill12@gmail.com</a></p>
+                    <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/ronan-mcgill-512b7a22a/" target="_blank">Profile</a></p>
+                    <p><strong>GitHub:</strong> <a href="https://github.com/RoMcGill" target="_blank">Profile</a></p>
                 </div>
-                <div class="image">
-                    <img id="image" src="{% static 'images/orange.png' %}" alt="About Us Image">
+
+                <div class="box2 hobbies">
+                    <h2>Hobbies</h2>
+                    <ul>
+                        <li>Mountain biking</li>
+                        <li>Making music</li>
+                        <li>Hiking</li>
+                        <li>Traveling</li>
+                        <li>Camping</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="row full-width">
+                <div class="box3 profile">
+                    <h2>Profile</h2>
+                    <ul>
+                        <li><strong><u>Recent Role:</u></strong> Lead Developer at Glimma AI</li>
+                        <li><strong><u>Responsibilities:</u></strong> Developed a functional prototype, established tech stack, and assembled a development team.</li>
+                        <li><strong><u>Achievements:</u></strong> Reached beta testing phase; project ceased due to competitive advancements in AI technology.</li>
+                        <li><strong><u>Previous Roles:</u></strong> Completed numerous freelance projects, online English teacher, substitute teacher, and special needs assistant.</li>
+                        <li><strong><u>Education:</u></strong> Full-stack software development course with Code Institute, Higher National Diploma in Music Production and Technology from DFEI.</li>
+                        <li><strong><u>Skills:</u></strong> Passion for technology, continuous learning, applying new skills in real-world situations.</li>
+                        <li><strong><u>Career Objective:</u></strong> Seeking a tech industry role to challenge myself, learn, and contribute to exciting projects.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="box4 experience">
+                    <h2>Experience</h2>
+                    <div class="job">
+                        <h3>Glimma.Ai</h3>
+                        <p><strong>Role:</strong> Lead Software Developer</p>
+                        <p><strong>Dates:</strong> July 2023 - November 2023</p>
+                        <ul>
+                            <li>Built a functional AI-powered branding tool using Django, Python, JavaScript, Ajax, HTML, CSS, Langchain, and chat GPT API.</li>
+                            <li>Collaborated with UX/UI Designers to create an aesthetically pleasing SaaS.</li>
+                            <li>Interviewed and hired developers for the team.</li>
+                            <li>Produced a beta product within a deadline.</li>
+                        </ul>
+                    </div>
+                    <div class="job">
+                        <h3>Freelance projects</h3>
+                        <p><strong>Role:</strong> Developer</p>
+                        <p><strong>Dates:</strong> January 2022 - Present</p>
+                        <ul>
+                            <li>Br3Security - Automated invoice creation and implemented AI aftersales customer service bot.</li>
+                            <li>Audax Ireland - Created a CLI program to plan the shortest cycle routes through selected counties.</li>
+                            <li>Modmo - Worked on an AI-assisted audio diary.</li>
+                            <li>Grand Park Tutors - Built a website for an English tutoring company.</li>
+                        </ul>
+                    </div>
+                    <!-- Continue with other experiences as per your JSON data -->
+                </div>
+
+                <div class="box5 education">
+                    <h2>Education</h2>
+                    <div class="school">
+                        <h3>Code Institute</h3>
+                        <p><strong>Qualification:</strong> Full Stack Software Development</p>
+                        <p><strong>Dates:</strong> 2021 - 2022</p>
+                    </div>
+                    <div class="school">
+                        <h3>DFEI</h3>
+                        <p><strong>Qualification:</strong> Higher National Diploma in Music Production and Technology</p>
+                        <p><strong>Dates:</strong> 2016 - 2018</p>
+                        <p><strong>Location:</strong> Dunlaoghaire</p>
+                    </div>
+                    <!-- Continue with other education as per your JSON data -->
+                </div>
+
+                <div class="box6 skills-profile">
+                    <h2>Skills Profile</h2>
+                    <ul>
+                        <li>HTML, CSS, Python, JavaScript, MySQL</li>
+                        <li>Django framework</li>
+                        <li>API integration</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </div>
-    <script>
-        let images = [
-            {src: "{% static 'images/orange.png' %}", color: '#fba911'},
-            {src: "{% static 'images/blue.png' %}", color: '#1192fb'},
-            {src: "{% static 'images/purp.png' %}", color: '#6c63ff'}
-        ];
-        let index = 0;
+</section>
 
-        function changeImage() {
-            let imageElement = document.getElementById('image');
-            let ctaButtons = document.querySelectorAll('.cta-button');
-            let headerLinks = document.querySelectorAll('.about-page header .links li:last-child');
-
-            // Update the image source
-            imageElement.src = images[index].src;
-
-            // Update the background color for buttons and header links
-            ctaButtons.forEach(button => {
-                button.style.backgroundColor = images[index].color;
-            });
-            headerLinks.forEach(link => {
-                link.style.backgroundColor = images[index].color;
-            });
-
-            // Move to the next image
-            index = (index + 1) % images.length;
-        }
-
-        // Change image every 4 seconds
-        setInterval(changeImage, 4000);
-
-        // Initial call to set the first image
-        changeImage();
-    </script>
+<!----------------Footer Section---------------->
+<footer>
+    <p>&copy; 2024 Ronan McGill</p>
+</footer>
 </body>
 </html>
 

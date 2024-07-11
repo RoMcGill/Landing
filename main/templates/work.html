@@ -4,74 +4,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us</title>
+    <title>About Ronan McGill</title>
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <script defer src="{% static 'js/script.js' %}"></script>
 </head>
 <body>
-    <div class="about-page">
-        <header>
-            <div class="container">
-                <a href="{% url 'home' %}" class="logo">Landing <b>Page</b></a>
-                <ul class="links">
-                    <li><a href="{% url 'home' %}">Home</a></li>
-                    <li><a href="{% url 'about' %}">About Us</a></li>
-                    <li><a href="{% url 'work' %}">work</a></li>
-                    <li><a href="#">Info</a></li>
-                    <li class="cta-button"><a href="{% url 'get-started' %}">Disco!</a></li>
-                </ul>
-            </div>
-        </header>
-        <div class="content">
-            <div class="container">
-                <div class="info">
-                    <h1 class="h1work">Some work we have done</h1>
-<div class="articles-container">
-    <article>Welcome to our company! We are dedicated to delivering the best service to our customers. Our team is composed of highly skilled professionals who are passionate about what they do.</article>
-    <article>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac vestibulum erat. Cras volutpat odio vitae nunc dictum, a ullamcorper nunc gravida. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Donec sit amet facilisis dui.</article>
-    <article>Sed interdum nulla at mi hendrerit aliquet. Mauris ac fermentum dolor, in posuere felis. Nam at nulla ut nunc gravida vestibulum. In ut libero sit amet metus gravida sollicitudin.</article>
-</div>
-<button class="cta-button">Contact Us</button>
-                </div>
-                <div class="image">
-                    <img id="image" src="{% static 'images/orange.png' %}" alt="About Us Image">
-                </div>
-            </div>
+<!----------------Header Section---------------->
+<header>
+    <div class="container">
+        <a href="#" class="logo">About<b> Ronan McGill</b></a>
+        <div class="menu-icon" id="menu-icon">
+            &#9776; <!-- Hamburger icon -->
         </div>
+        <ul class="links" id="nav-links">
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'about' %}">About</a></li>
+            <li><a href="{% url 'work' %}">Projects</a></li>
+            <li>Info</li>
+            <!-- <li class="cta-button"><a href="{% url 'get-started' %}">Disco!</a></li> -->
+        </ul>
     </div>
-    <script>
-        let images = [
-            {src: "{% static 'images/orange.png' %}", color: '#fba911'},
-            {src: "{% static 'images/blue.png' %}", color: '#1192fb'},
-            {src: "{% static 'images/purp.png' %}", color: '#6c63ff'}
-        ];
-        let index = 0;
+</header>
 
-        function changeImage() {
-            let imageElement = document.getElementById('image');
-            let ctaButtons = document.querySelectorAll('.cta-button');
-            let headerLinks = document.querySelectorAll('.about-page header .links li:last-child');
+<!----------------Projects Section---------------->
+<section class="projects-section">
+    <div class="projects-container">
+        <h1>Projects</h1>
+        <div class="projects-grid">
+            <div class="project-card">
+                <h2>Glimma Ai</h2>
+                <img src="{% static 'images/glimma.png' %}" alt="Project 1 Image">
+                <p>At Glimma AI, I developed a functional prototype that successfully attracted investor funding and led to my promotion to Lead Developer, where I established the tech stack and built a development team to bring our product to the beta testing phase.</p>
+            </div>
+            <div class="project-card">
+                <h2>Home 2 Retail</h2>
+                <img src="{% static 'images/h2r.png' %}" alt="Project 2 Image">
+                <p>Home 2 Retail (H2R) is a fully functional e-commerce platform I developed that enables users to create their own brand page and effortlessly upload and sell products. This platform simplifies online selling for non-technical individuals by allowing them to list their goods through a single, easy-to-use form.</p>
+            </div>
+            <div class="project-card">
+                <h2>Fit Ai</h2>
+                <img src="{% static 'images/Fit-Ai.png' %}" alt="Project 6 Image">
+                <p>I created an application that leverages the Strava API to gather my recent training data and the GPT API to analyze this information. The app provides personalized exercise and nutritional advice, as well as recommendations on areas to focus on for improvement based on my Strava statistics.</p>
+            </div>
+            <div class="project-card">
+                <h2>Mindfull Reminders</h2>
+                <img src="{% static 'images/reminders.png' %}" alt="Project 5 Image">
+                <p>As part of a team for a Hackathon, I developed an application focused on mindfulness. This basic application provides users with reminders to follow the 20-20-20 rule during work, displays desk exercises, and shares inspirational quotes to promote well-being and productivity.</p>
+            </div>
+            <div class="project-card">
+                <h2>Guess The Boozer (Pub!)</h2>
+                <img src="{% static 'images/home.png' %}" alt="Project 3 Image">
+                <p>A social media site where users could post vague images of their locations, primarily pubs and bars, and challenge others to guess where they were. Users could create accounts, like, follow, and comment on each other's posts, fostering an interactive and engaging community.</p>
+            </div>
+            <div class="project-card">
+                <h2>Code Hero</h2>
+                <img src="{% static 'images/code-hero.png' %}" alt="Project 4 Image">
+                <p>I developed a game similar to Guitar Hero or Rockband, where users test their typing and coding skills by ensuring correct syntax passes through a designated point. This interactive game challenges players to improve their coding accuracy and speed in a fun, engaging way.</p>
+            </div>
 
-            // Update the image source
-            imageElement.src = images[index].src;
 
-            // Update the background color for buttons and header links
-            ctaButtons.forEach(button => {
-                button.style.backgroundColor = images[index].color;
-            });
-            headerLinks.forEach(link => {
-                link.style.backgroundColor = images[index].color;
-            });
+        </div>
 
-            // Move to the next image
-            index = (index + 1) % images.length;
-        }
+    </div>
+</section>
 
-        // Change image every 4 seconds
-        setInterval(changeImage, 4000);
-
-        // Initial call to set the first image
-        changeImage();
-    </script>
+<!----------------Footer Section---------------->
+<footer>
+    <p>&copy; 2024 Ronan McGill</p>
+</footer>
 </body>
 </html>
-

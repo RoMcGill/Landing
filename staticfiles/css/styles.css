@@ -164,6 +164,7 @@ header {
 .ai p {
     font-size: 1rem;
     margin-bottom: 1.5rem;
+    color: white;
 }
 
 .ai form {
@@ -252,6 +253,12 @@ header {
     margin: 20px;
     color: white;
 }
+.weather h2{
+    color: white;
+}
+.weather p{
+    color: white;
+}
 
 .weather img {
     max-width: 50px;
@@ -259,5 +266,217 @@ header {
 }
 footer{
     padding: 30px;
+    color: white;
+}
+
+/* ---------------------------- About Section Styles */
+.about-section {
+    padding: 50px;
+    color: white;
+    background-color: black;
+}
+
+.about-container {
+
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.row {
+    display: flex;
+    gap: 80px;
+    flex-wrap: wrap;
+    padding: 40px;
+
+}
+
+.row.full-width {
+    flex-direction: column;
+}
+
+.box1 {
+    background: linear-gradient(120deg, #725bdc, #b6b6b6);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 0 10px lightskyblue;
+    flex: 1;
+}
+
+.box2 {
+    background: linear-gradient(120deg, #4727d5, #b6b6b6);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 0 10px lightskyblue;
+    flex: 1;
+}
+.box3 {
+    background: linear-gradient(120deg, #5b9cdc, #b6b6b6);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 0 10px lightskyblue;
+    flex: 1;
+}
+.box4 {
+    background: linear-gradient(120deg, #146256, #b6b6b6);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 0 10px lightskyblue;
+    flex: 1;
+}
+.box5 {
+    background: linear-gradient(120deg, #2f0ccd, #b6b6b6);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 0 10px lightskyblue;
+    flex: 1;
+}
+.box6 {
+    background: linear-gradient(120deg, #2500cb, #b6b6b6);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 0 10px lightskyblue;
+    flex: 1;
+}
+
+.personal-info, .hobbies, .skills-profile {
+    flex-basis: calc(33.333% - 50px);
+}
+
+.skills-profile, .experience {
+    flex-basis: calc(50% - 50px);
+}
+
+.full-width .box1 {
+    flex-basis: 100%;
+}
+
+h1, h2, h3 {
+    color: black;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    margin-bottom: 10px;
+}
+
+a {
+    color: #fba911;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .row {
+        flex-direction: column;
+    }
+
+    .box1 {
+        flex-basis: 100%;
+    }
+}
+
+
+/* Styles for the hamburger menu */
+.menu-icon {
+    display: block;
+    cursor: pointer;
+    font-size: 2rem;
+    color: white;
+    margin-right: 1rem;
+}
+
+.links {
+    display: none;
+    flex-direction: column;
+    background-color: black;
+    position: absolute;
+    top: 60px;
+    right: 10px;
+    width: 200px;
+    border-radius: 5px;
+}
+
+.links li {
+    padding: 10px;
+    border-bottom: 1px solid #444;
+}
+
+.links li:last-child {
+    border-bottom: none;
+}
+
+/* Ensure the hamburger menu is always visible */
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Show the dropdown menu when active */
+.links.show {
+    display: flex;
+}
+
+
+/* Styles for the projects section */
+.projects-section {
+    padding: 20px;
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+
+.projects-container {
+    width: 45vw;
+    margin: 0 auto;
+}
+
+.projects-grid {
+    display: grid;
+    gap: 80px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.project-card {
+    background: linear-gradient(120deg, #725bdc, #b6b6b6);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 0 10px lightskyblue;
+    text-align: center;
+}
+
+.project-card img {
+    max-width: 100%;
+    max-height: 390px;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+h1, h2 {
+    color: white;
+}
+
+p {
+    color: black;
+}
+
+@media (max-width: 768px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
 }
 

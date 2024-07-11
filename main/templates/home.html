@@ -4,24 +4,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ronan McGill</title>
+    <title>About Ronan McGill</title>
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <script defer src="{% static 'js/script.js' %}"></script>
 </head>
 <body>
 <!----------------Header Section---------------->
 <header>
-<div class="container">
-    <a href="#" class="logo">Ronan's<b> Portfolio</b></a>
-    <ul class="links">
-        <li>Home</li>
-        <li><a href="{% url 'about' %}">About Us</a></li>
-        <li><a href="{% url 'work' %}">Work</a></li>
-        <li>Info</li>
-        <li class="cta-button"><a href="{% url 'get-started' %}">Disco!</a></li>
-    </ul>
-</div>
+    <div class="container">
+        <a href="#" class="logo">Ronan's<b> Portfolio</b></a>
+        <div class="menu-icon" id="menu-icon">
+            &#9776; <!-- Hamburger icon -->
+        </div>
+        <ul class="links" id="nav-links">
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'about' %}">About</a></li>
+            <li><a href="{% url 'work' %}">Projects</a></li>
+            <li>Info</li>
+            <!-- <li class="cta-button"><a href="{% url 'get-started' %}">Disco!</a></li> -->
+        </ul>
+    </div>
 </header>
-
 <!----------------Main Content Section---------------->
 <section>
     <div></div>
@@ -87,7 +90,7 @@
 </section>
 <!----------------footer Section---------------->
 <footer>
-
+    <p>&copy; 2024 Ronan McGill</p>
 </footer>
 </body>
 </html>
