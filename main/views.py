@@ -5,12 +5,17 @@ import os
 from dotenv import load_dotenv
 from django.views.decorators.csrf import csrf_exempt
 
+
+from django.http import JsonResponse
+
+from django.conf import settings
+
 # Load environment variables from .env file
 load_dotenv()
 
 # Ensure the OpenAI API key is securely retrieved
 import os
-from django.shortcuts import render
+
 from openai import OpenAI
 
 # Ensure the OpenAI API key is securely retrieved
@@ -213,8 +218,8 @@ def get_weather_data(city):
     else:
         weather = None
     return weather
+from django.http import JsonResponse
 
-@csrf_exempt  # Only use this for development; use proper CSRF handling in production
 def home(request):
     global developer_info
     messages = [
@@ -233,16 +238,14 @@ def home(request):
     weather = get_weather_data('Dublin')
 
     if request.method == "POST":
-        if 'developer_info' in request.POST:
-            developer_info = request.POST.get("developer_info")
-        elif 'question' in request.POST:
+        if request.headers.get('x-requested-with') == 'XMLHttpRequest':
             user_prompt = request.POST.get("question")
             # Add the user's question to the messages as a User Role
             messages.append({"role": "user", "content": f"Developer info: {developer_info}. {user_prompt}"})
 
             # Generate a completion using the user's question
             completion = client.chat.completions.create(
-            model="gpt-4-turbo",
+                model="gpt-4-turbo",
                 messages=messages
             )
 
@@ -252,19 +255,19 @@ def home(request):
             # Add the response to the messages as an Assistant Role
             messages.append({"role": "assistant", "content": model_response})
 
-        return render(request, "home.html", {
-            "response": model_response,
-            "question": user_prompt,
-            "developer_info": developer_info,
-            "weather": weather
-        })
+            return JsonResponse({
+                "response": model_response,
+                "question": user_prompt,
+                "developer_info": developer_info
+            })
+
+        if 'developer_info' in request.POST:
+            developer_info = request.POST.get("developer_info")
 
     return render(request, "home.html", {
         "developer_info": developer_info,
         "weather": weather
     })
-
-
 
 
 def about(request):

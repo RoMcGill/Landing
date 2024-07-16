@@ -7,3 +7,5 @@ export PYTHONPATH=/workspace/Landing
 
 
 echo "OPENAI_API_KEY=" >> .env
+
+cd /workspace/Landing/landing

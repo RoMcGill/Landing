@@ -4,15 +4,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Ronan McGill</title>
+    <title>Ronan's Projects</title>
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <script defer src="{% static 'js/script.js' %}"></script>
 </head>
 <body>
+    <style>
+        .projects-section{
+        background-color: #000000;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 800 800'%3E%3Cg fill='none' stroke='%232C062B' stroke-width='1.7'%3E%3Cpath d='M769 229L1037 260.9M927 880L731 737 520 660 309 538 40 599 295 764 126.5 879.5 40 599-197 493 102 382-31 229 126.5 79.5-69-63'/%3E%3Cpath d='M-31 229L237 261 390 382 603 493 308.5 537.5 101.5 381.5M370 905L295 764'/%3E%3Cpath d='M520 660L578 842 731 737 840 599 603 493 520 660 295 764 309 538 390 382 539 269 769 229 577.5 41.5 370 105 295 -36 126.5 79.5 237 261 102 382 40 599 -69 737 127 880'/%3E%3Cpath d='M520-140L578.5 42.5 731-63M603 493L539 269 237 261 370 105M902 382L539 269M390 382L102 382'/%3E%3Cpath d='M-222 42L126.5 79.5 370 105 539 269 577.5 41.5 927 80 769 229 902 382 603 493 731 737M295-36L577.5 41.5M578 842L295 764M40-201L127 80M102 382L-261 269'/%3E%3C/g%3E%3Cg fill='%23642287'%3E%3Ccircle cx='769' cy='229' r='8'/%3E%3Ccircle cx='539' cy='269' r='8'/%3E%3Ccircle cx='603' cy='493' r='8'/%3E%3Ccircle cx='731' cy='737' r='8'/%3E%3Ccircle cx='520' cy='660' r='8'/%3E%3Ccircle cx='309' cy='538' r='8'/%3E%3Ccircle cx='295' cy='764' r='8'/%3E%3Ccircle cx='40' cy='599' r='8'/%3E%3Ccircle cx='102' cy='382' r='8'/%3E%3Ccircle cx='127' cy='80' r='8'/%3E%3Ccircle cx='370' cy='105' r='8'/%3E%3Ccircle cx='578' cy='42' r='8'/%3E%3Ccircle cx='237' cy='261' r='8'/%3E%3Ccircle cx='390' cy='382' r='8'/%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        </style>
 <!----------------Header Section---------------->
 <header>
     <div class="container">
-        <a href="#" class="logo">About<b> Ronan McGill</b></a>
+        <a href="{% url 'home' %}"class="logo">Ronan's<b> Projects</b></a>
         <div class="menu-icon" id="menu-icon">
             &#9776; <!-- Hamburger icon -->
         </div>
@@ -20,7 +27,7 @@
             <li><a href="{% url 'home' %}">Home</a></li>
             <li><a href="{% url 'about' %}">About</a></li>
             <li><a href="{% url 'work' %}">Projects</a></li>
-            <li>Info</li>
+
             <!-- <li class="cta-button"><a href="{% url 'get-started' %}">Disco!</a></li> -->
         </ul>
     </div>
@@ -34,7 +41,7 @@
             <div class="project-card">
                 <h2>Glimma Ai</h2>
                 <img src="{% static 'images/glimma.png' %}" alt="Project 1 Image">
-                <p>At Glimma AI, I developed a functional prototype that successfully attracted investor funding and led to my promotion to Lead Developer, where I established the tech stack and built a development team to bring our product to the beta testing phase.</p>
+                <p>At Glimma AI, I was the sole developer working on a prototype along with the founders that successfully attracted investor funding and led to my promotion to Lead Developer, where I established the tech stack and built a development team to bring our product to the beta testing phase.</p>
             </div>
             <div class="project-card">
                 <h2>Home 2 Retail</h2>

@@ -20,7 +20,6 @@
             <li><a href="{% url 'home' %}">Home</a></li>
             <li><a href="{% url 'about' %}">About</a></li>
             <li><a href="{% url 'work' %}">Projects</a></li>
-            <li>Info</li>
             <!-- <li class="cta-button"><a href="{% url 'get-started' %}">Disco!</a></li> -->
         </ul>
     </div>
@@ -31,6 +30,7 @@
 </section>
 <!----------------Developer Information Section---------------->
 <section class="dev-info-section">
+    <div class="info-cont">
     <div class="info">
         <h1>Stats</h1>
         <pre>{
@@ -43,6 +43,7 @@
     <div class="image-container">
         <img src="{% static 'images/robw.png' %}" alt="Orange">
     </div>
+</div>
 </section>
 
 <!----------------AI Bot Section---------------->
@@ -50,23 +51,51 @@
     <div class="ai">
         <h1>Find out more about Ronan</h1>
         <p>By using my in-house information retrieval bot</p>
-        <form method="POST">
+        <form id="questionForm" method="POST">
             {% csrf_token %}
             <input type="text" id="question" name="question" required>
             <button type="submit">Ask Another</button>
         </form>
 
-        {% if response %}
         <div class="response">
-            <p>{{ response }}</p>
-        {% else %}
-        <div class="response">
-            <p>Ronan is 27 years old</p>
-        {% endif %}
+            <p id="response-text">{% if response %}{{ response }}{% else %}Ronan is 27 years old{% endif %}</p>
         </div>
     </div>
     <div class="backdrop"></div>
+    <div id="loading-spinner"></div> <!-- Loading spinner element -->
 </section>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+    $('#questionForm').on('submit', function(event) {
+        event.preventDefault();
+        $('#loading-spinner').show(); // Show loading spinner
+
+        $.ajax({
+            type: 'POST',
+            url: '',
+            data: {
+                question: $('#question').val(),
+                csrfmiddlewaretoken: '{{ csrf_token }}'
+            },
+            success: function(response) {
+                $('#loading-spinner').hide(); // Hide loading spinner
+                $('#response-text').text(response.response);
+            },
+            error: function(xhr, status, error) {
+                $('#loading-spinner').hide(); // Hide loading spinner
+                console.error(xhr.responseText); // Log error to console
+                alert("An error occurred: " + error); // Alert error to user
+            }
+        });
+    });
+});
+</script>
+
+
+
 
 <!----------------Image Section---------------->
 <!-- <section>
@@ -94,3 +123,4 @@
 </footer>
 </body>
 </html>
+

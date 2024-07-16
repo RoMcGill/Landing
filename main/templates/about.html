@@ -6,13 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Ronan McGill</title>
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script defer src="{% static 'js/script.js' %}"></script>
 </head>
 <body>
 <!----------------Header Section---------------->
 <header>
     <div class="container">
-        <a href="#" class="logo">About<b> Ronan McGill</b></a>
+        <a href="{% url 'home' %}" class="logo">About<b> Ronan McGill</b></a>
         <div class="menu-icon" id="menu-icon">
             &#9776; <!-- Hamburger icon -->
         </div>
@@ -20,20 +21,27 @@
             <li><a href="{% url 'home' %}">Home</a></li>
             <li><a href="{% url 'about' %}">About</a></li>
             <li><a href="{% url 'work' %}">Projects</a></li>
-            <li>Info</li>
+
             <!-- <li class="cta-button"><a href="{% url 'get-started' %}">Disco!</a></li> -->
         </ul>
     </div>
 </header>
-<!-- Main content goes here -->
-</body>
-</html>
 
+<!-- Overlay for "Coming Soon" message -->
+<div class="overlay" id="coming-soon-overlay">
+    <div class="overlay-content">
+        <h1>Coming Soon</h1>
+        <p>
+            <a href="{% url 'work' %}">
+                <i class="fas fa-mouse-pointer"></i> Click here to view some of my projects
+            </a>
+        </p>
 
+    </div>
+</div>
 <!----------------Main Content Section---------------->
 <section class="about-section">
     <div class="about-container">
-        <h1>About Ronan McGill</h1>
         <div class="about-content">
             <div class="row">
                 <div class="box1 personal-info">
